@@ -1,0 +1,8 @@
+name: ""
+targetAir: true
+targetGround: true
+size: 3
+alwaysUnlocked:true
+category:turret
+requirements:[
+]

@@ -1,0 +1,7 @@
+name: "TestingMod"
+displayName: "This isn't a mod."
+author: Devsz&WinZ
+description: "Our Testing Mod"
+version: "1.0"
+minGameVersion: "145"
+dependencies: [ ]
