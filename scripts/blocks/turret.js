@@ -20,7 +20,36 @@ p.smokeEffect = Fx.neoplasmSplat;
 p.speed = 5;
 p.lifetime = 15;
 p.damage = 999999999;
+const laser = extend(LaserBulletType, {
+    damage: 999999999,
+    length: 600,
+    width: 8,
+    lifetime: 60,
+    colors: [Color.valueOf("ff0000"), Color.valueOf("ff5555"), Color.valueOf("ffaaaa")]
+});
 
+const turret = extend(PowerTurret, "laser-turret", {
+    init() {
+        this.ammo(
+            laser
+        );
+        this.super$init();
+    },
+    icons() {
+        return [
+            Core.atlas.find("block-3"),
+            Core.atlas.find(this.name)
+        ];
+    }
+});
+
+turret.buildType = prov(() => extend(PowerTurret.PowerTurretBuild, turret, {}));
+turret.itemCapacity = 0;
+turret.range = 600;
+turret.reload = 1;
+turret.shots = 1;
+turret.health = 900000000;
+turret.powerUse = 10;
 energyBall.fragBullets = 10;
 energyBall.fragBullet = c;
 p.fragBullets = 16;
